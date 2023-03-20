@@ -1,7 +1,11 @@
+:root {
+  --main-bg-color: #f0f0f0;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: #f0f0f0;
+  background-color: var(--main-bg-color);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,10 +15,11 @@ body {
 header {
   height: 100px;
   width: 100vw;
-  background-color: azure;
+  background-color: var(--main-bg-color);
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px 2px 5px #dcdcdc;
 }
 
 form {
@@ -25,7 +30,7 @@ form {
   grid-auto-flow: row;
   margin: auto 0;
   padding: 30px 20px;
-  row-gap: 20px;
+  row-gap: 15px;
 }
 
 form div {
@@ -47,6 +52,17 @@ form input {
   border: none;
 }
 
+input.invalid {
+  border: 2px solid firebrick;
+  padding: 8px 10px;
+}
+
+.active-error:after {
+  padding-left: 12px;
+  font-size: 0.8rem;
+  color: firebrick;
+}
+
 form button {
   height: fit-content;
   font-size: 1.2rem;
@@ -55,8 +71,18 @@ form button {
   border: none;
   background-color: rgb(255, 123, 0);
   color: #f0f0f0;
+  transition: 300ms;
+}
+
+button:active {
+  transform: scale(0.95);
 }
 
 footer {
   margin-top: auto;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px -2px 5px #dcdcdc;
 }

@@ -12,7 +12,7 @@
     <header>
       <h1>Form Validation Practice</h1>
     </header>
-    <form action="/" method="get" id="practice-form">
+    <form action="/" method="get" id="practice-form" novalidate>
       <div class="email">
         <label for="email-input"> Email Address: </label>
         <input
@@ -22,6 +22,7 @@
           placeholder="email@email.com"
           required
         />
+        <div class="error-message"></div>
       </div>
       <div class="country">
         <label for="country-input">Country: </label>
@@ -32,6 +33,7 @@
           placeholder="Canada"
           required
         />
+        <div class="error-message"></div>
       </div>
       <div class="zip">
         <label for="zipcode-input">Zip Code: </label>
@@ -42,6 +44,7 @@
           placeholder="Zip Code"
           required
         />
+        <div class="error-message"></div>
       </div>
       <div class="passcode">
         <label for="password">Choose a Password: </label>
@@ -54,6 +57,7 @@
           pattern="^(?=.*[A-Z])(?=.*[!@#$%^&*()_+,\-.\/:;<=>?@[\\\]^_`{|}~])[a-zA-Z0-9!@#$%^&*()_+,\-.\/:;<=>?@[\\\]^_`{|}~]{8,}$
         "
         />
+        <div class="error-message"></div>
       </div>
       <div class="passcode-confirmation">
         <label for="password-confirmation">Confirm Password: </label>
@@ -66,6 +70,7 @@
           pattern="^(?=.*[A-Z])(?=.*[!@#$%^&*()_+,\-.\/:;<=>?@[\\\]^_`{|}~])[a-zA-Z0-9!@#$%^&*()_+,\-.\/:;<=>?@[\\\]^_`{|}~]{8,}$
         "
         />
+        <div class="error-message"></div>
       </div>
       <button type="submit" class="submit" name="submit">Submit</button>
     </form>
