@@ -8,5 +8,69 @@
     <script defer src="./script.js"></script>
     <title>Simple Validtion Form Practice</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>Form Validation Practice</h1>
+    </header>
+    <form action="/" method="get" id="practice-form">
+      <div class="email">
+        <label for="email-input"> Email Address: </label>
+        <input
+          type="email"
+          id="email-input"
+          name="email-input"
+          placeholder="email@email.com"
+          required
+        />
+      </div>
+      <div class="country">
+        <label for="country-input">Country: </label>
+        <input
+          type="text"
+          id="country-input"
+          name="country-input"
+          placeholder="Canada"
+          required
+        />
+      </div>
+      <div class="zip">
+        <label for="zipcode-input">Zip Code: </label>
+        <input
+          type="text"
+          id="zipcode-input"
+          name="zipcode-input"
+          placeholder="Zip Code"
+          required
+        />
+      </div>
+      <div class="passcode">
+        <label for="password">Choose a Password: </label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          required
+          pattern="^(?=.*[A-Z])(?=.*[!@#$%^&*()_+,\-.\/:;<=>?@[\\\]^_`{|}~])[a-zA-Z0-9!@#$%^&*()_+,\-.\/:;<=>?@[\\\]^_`{|}~]{8,}$
+        "
+        />
+      </div>
+      <div class="passcode-confirmation">
+        <label for="password-confirmation">Confirm Password: </label>
+        <input
+          type="password"
+          id="password-confirmation"
+          name="password-confirmation"
+          placeholder="Password"
+          required
+          pattern="^(?=.*[A-Z])(?=.*[!@#$%^&*()_+,\-.\/:;<=>?@[\\\]^_`{|}~])[a-zA-Z0-9!@#$%^&*()_+,\-.\/:;<=>?@[\\\]^_`{|}~]{8,}$
+        "
+        />
+      </div>
+      <button type="submit" class="submit" name="submit">Submit</button>
+    </form>
+    <footer>
+      <h2>CTJ - 2023</h2>
+    </footer>
+  </body>
 </html>
