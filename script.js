@@ -32,8 +32,8 @@ function formValidation() {
   });
 
   country.addEventListener("change", (e) => {
-    const errorMessage = country.nextElementSibling;
-    const formDivParent = country.parentNode;
+    // const errorMessage = country.nextElementSibling;
+    // const formDivParent = country.parentNode;
     if (country.value === "select country") {
       showError(country);
     } else {
@@ -126,5 +126,4 @@ function validInput(input) {
   formDivParent.style.marginBottom = "30px";
   input.classList.remove("invalid");
   input.classList.add("valid");
-  //   input.style.border = "2px solid green";
 }
