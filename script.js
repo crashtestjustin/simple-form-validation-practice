@@ -68,7 +68,8 @@ function checkErrorType(input) {
   if (input.value !== mainPwField.value) {
     console.log("pw missmatch");
     showError(input);
-    mainPwField.style.border = "2px solid firebrick";
+    // mainPwField.style.border = "2px solid firebrick";
+    mainPwField.classList.remove("valid");
     mainPwField.classList.add("invalid");
   } else {
     mainPwField.classList.remove("invalid");
@@ -126,4 +127,14 @@ function validInput(input) {
   formDivParent.style.marginBottom = "30px";
   input.classList.remove("invalid");
   input.classList.add("valid");
+}
+
+function validityChange(input) {
+  if (input.classList.contains("valid")) {
+    input.classList.remove("valid");
+    input.classList.add("invalid");
+  } else {
+    input.classList.remove("valid");
+    input.classList.add("invalid");
+  }
 }
