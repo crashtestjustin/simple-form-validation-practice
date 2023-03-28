@@ -3,7 +3,6 @@ formValidation();
 function formValidation() {
   const inputs = document.querySelectorAll("input");
   const country = document.querySelector("#country-input");
-  console.log(country);
   inputs.forEach((input) => {
     const errorMessage = input.nextElementSibling;
     const formDivParent = input.parentNode;
@@ -32,8 +31,14 @@ function formValidation() {
   });
 
   country.addEventListener("change", (e) => {
-    // const errorMessage = country.nextElementSibling;
-    // const formDivParent = country.parentNode;
+    if (country.value === "select country") {
+      showError(country);
+    } else {
+      validInput(country);
+    }
+  });
+
+  country.addEventListener("focusout", (e) => {
     if (country.value === "select country") {
       showError(country);
     } else {
@@ -66,15 +71,8 @@ function formValidation() {
 function checkErrorType(input) {
   const mainPwField = document.getElementById("password");
   if (input.value !== mainPwField.value) {
-    console.log("pw missmatch");
     showError(input);
-    // mainPwField.style.border = "2px solid firebrick";
-    mainPwField.classList.remove("valid");
-    mainPwField.classList.add("invalid");
   } else {
-    mainPwField.classList.remove("invalid");
-    input.classList.remove("invalid");
-    validInput(mainPwField);
     validInput(input);
   }
 }
@@ -88,7 +86,7 @@ function showError(input) {
     input.classList.add("invalid");
     input.classList.remove("valid");
   }
-  if (input.validity.valueMissing) {
+  if (input.validity.valueMissing && input.id !== "password") {
     errorMessage.textContent = "This field is required.";
     formDivParent.style.marginBottom = "15px";
     input.classList.add("invalid");
@@ -109,14 +107,10 @@ function errorMessageDeterminant(input) {
   } else if (input.id === "zipcode-input") {
     errorMessage.textContent = "Please provide a valid zip code.";
   } else if (input.id === "password") {
-    const pwConfirm = document.getElementById("password-confirmation");
-    if (input.value !== pwConfirm.value && pwConfirm.value.length >= 1) {
-      errorMessage.textContent = "Passwords do not match.";
-    } else {
-      errorMessage.textContent = "Please provide a valid password.";
-    }
+    errorMessage.textContent =
+      "Password must include 1 upper case letter and 1 special character";
   } else if (input.id === "password-confirmation") {
-    errorMessage.textContent = "Passwords do not match.";
+    errorMessage.textContent = "Passwords do not match";
   }
 }
 
@@ -125,16 +119,6 @@ function validInput(input) {
   const errorMessage = input.nextElementSibling;
   errorMessage.textContent = "";
   formDivParent.style.marginBottom = "30px";
-  input.classList.remove("invalid");
   input.classList.add("valid");
-}
-
-function validityChange(input) {
-  if (input.classList.contains("valid")) {
-    input.classList.remove("valid");
-    input.classList.add("invalid");
-  } else {
-    input.classList.remove("valid");
-    input.classList.add("invalid");
-  }
+  input.classList.remove("invalid");
 }
